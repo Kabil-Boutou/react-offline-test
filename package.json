@@ -5,6 +5,12 @@
     "start": "webpack-dev-server --hot --progress"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.2.2",
+    "@chakra-ui/react": "^2.9.3",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@tanstack/react-query": "^5.59.0",
+    "framer-motion": "^11.11.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
