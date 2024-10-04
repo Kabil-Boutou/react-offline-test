@@ -11,7 +11,9 @@ export function CustomStat({ label, number, tooltip, help }: Props) {
   return (
     <Stat>
       <StatLabel fontSize={'xl'}>{label}</StatLabel>
-      <StatNumber fontSize={'3xl'}>{number}</StatNumber>
+      <StatNumber fontSize={'3xl'} data-testid={`${label}-number`}>
+        {number}
+      </StatNumber>
       <Tooltip hasArrow label={tooltip || ''} children={<StatHelpText>{help}</StatHelpText>} />
     </Stat>
   )

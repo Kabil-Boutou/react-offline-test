@@ -41,12 +41,14 @@ export function App() {
       >
         {data.rawData?.generationmix.map((eng) => {
           return (
-            <CustomStat
-              label={eng.fuel.toUpperCase()}
-              number={`${eng.perc}%`}
-              tooltip="Last Update"
-              help={`${extractTimeUK(data.rawData.from)} - ${extractTimeUK(data.rawData.to)}`}
-            />
+            <span key={eng.fuel}>
+              <CustomStat
+                label={eng.fuel.toUpperCase()}
+                number={`${eng.perc}%`}
+                tooltip="Last Update"
+                help={`${extractTimeUK(data.rawData.from)} - ${extractTimeUK(data.rawData.to)}`}
+              />
+            </span>
           )
         })}
       </Grid>
