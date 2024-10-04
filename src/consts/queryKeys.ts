@@ -1,0 +1,1 @@
+export const ENERGY_DATA_GET = 'ENERGY_DATA_GET'
