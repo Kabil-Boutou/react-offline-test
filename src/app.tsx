@@ -4,7 +4,7 @@ import { Grid, Container, Spinner, Text } from '@chakra-ui/react'
 
 import { getUKEnergyMix } from './API'
 import { CustomBarChart, CustomStat } from './Components'
-import { ENERGY_DATA_GET } from './consts/queryKeys'
+import { CHART_COLORS, ENERGY_DATA_GET } from './consts/queryKeys'
 import { extractTimeUK } from './helpers/utils'
 
 export function App() {
@@ -12,7 +12,11 @@ export function App() {
     queryKey: [ENERGY_DATA_GET],
     queryFn: getUKEnergyMix,
     select(data) {
-      const dataChart = data?.generationmix.map((eng) => ({ name: eng.fuel, perc: Number(eng.perc) }))
+      const dataChart = data?.generationmix.map((eng, index) => ({
+        name: eng.fuel,
+        value: Number(eng.perc),
+        fill: CHART_COLORS[index],
+      }))
       return { rawData: data, dataChart }
     },
   })
@@ -46,7 +50,7 @@ export function App() {
           )
         })}
       </Grid>
-      <CustomBarChart data={data?.dataChart} barLabels={[{ label: 'perc', fill: '#8884d8' }]} />
+      <CustomBarChart data={data?.dataChart} />
     </Container>
   )
 }
